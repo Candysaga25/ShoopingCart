@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg_gray_color"
+    android:fitsSystemWindows="true"
+    tools:context="com.ecommerceapp.ShoppingCartActivity">
+
+    <LinearLayout
+        android:id="@+id/activity_shopping_cart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_buy_coutinue">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view_shopping_cart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <TextView
+                android:id="@+id/label_no_cart_item_found"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_buy_coutinue"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/item_not_found_cart_error"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/text_size_large"
+                android:visibility="gone" />
+
+            <Button
+                android:id='@+id/btn_buy_coutinue'
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height='wrap_content'
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/button_ripple_drawable"
+                android:text="@string/buy_continue"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_medium" />
+        </RelativeLayout>
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
